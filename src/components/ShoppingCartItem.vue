@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-20 gap-5 p-2 border">
+  <div class="flex h-32 gap-5 p-2 border">
     <img
       class="max-w-[110px] object-cover"
       :src="course.picture"

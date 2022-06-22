@@ -25,7 +25,7 @@
       <button
         :class="[
           'w-full h-10 mt-auto rounded-sm text-stone-600 bg-sky-300 hover:bg-sky-400 ',
-          !isCloseStatus(course.status) && 'active:ring ring-pink-500',
+          !isCloseStatus(course.status) && 'active:ring ring-sky-700',
           isCloseStatus(course.status) && 'cursor-not-allowed',
         ]"
         type="button"
