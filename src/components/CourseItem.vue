@@ -2,7 +2,7 @@
   <div
     :class="[
       'overflow-hidden rounded-lg shadow-lg hover:shadow-xl bg-gray-60',
-      isCloseStatus(course.status) && 'opacity-50',
+      isCloseStatus(course.status) && 'opacity-50 select-none',
     ]"
   >
     <img
@@ -30,6 +30,7 @@
         ]"
         type="button"
         :disabled="isCloseStatus(course.status)"
+        @click="addItem(course.id)"
       >
         加入購物車
       </button>
@@ -39,8 +40,15 @@
 
 <script setup lang="ts">
 import { Course } from '../type'
+import { useCartStore } from '../store/cart'
 
 defineProps<{ course: Course }>()
+
+const cartStore = useCartStore()
+
+function addItem(courseId: number) {
+  cartStore.addCourseToCart(courseId)
+}
 
 interface IDictionary<TValue> {
   [id: string]: TValue

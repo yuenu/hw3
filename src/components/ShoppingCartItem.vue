@@ -11,13 +11,21 @@
       <h4 class="text-[#a435f0]">NT$ {{ course.price }}</h4>
     </div>
     <div class="justify-end flex-1 gap-2 mr-4 text-end">
-      <button class="text-red-600">移除</button>
+      <button
+        @click="cartStore.removeCourseFromCart(course.id)"
+        class="text-red-600"
+      >
+        移除
+      </button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { Course } from '../type'
+import { useCartStore } from '../store/cart'
 
 defineProps<{ course: Course }>()
+
+const cartStore = useCartStore()
 </script>
